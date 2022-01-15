@@ -1,10 +1,9 @@
 import Card from './Card';
-import { robots } from '../data/robots';
 
-const CardList = () => {
+const CardList = ({robots}) => {
 
     return ( 
-        <>
+        <div>
             {
                 robots.map(robot => {
                     return  <Card 
@@ -14,8 +13,7 @@ const CardList = () => {
                             /> 
                 })
             }
-         
-        </>
+        </div>
     );
 }
  
