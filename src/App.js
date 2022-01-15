@@ -1,18 +1,24 @@
 import React from 'react';
-import './App.css';
-import 'tachyons';
 import { robots } from './data/robots';
 import CardList from './components/CardList';
 import SearchBox from './components/SearchBox';
+import './App.css';
+import 'tachyons';
 
 
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      robots : robots,
+      robots : [],
       searchField : ''
     }
+    console.log('Constructor')
+  }
+
+  componentDidMount () {
+    this.setState({ robots : robots })
+    console.log('componentDidmount')
   }
 
   onSearchChange = e => {
@@ -20,6 +26,7 @@ class App extends React.Component {
   }
 
   render() {
+    console.log("render")
     const filterRobots = this.state.robots.filter(robot => robot.name.toLowerCase().includes(this.state.searchField.toLowerCase()))
     return (
       <div className='tc'>
