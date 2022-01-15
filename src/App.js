@@ -1,25 +1,15 @@
 import React from 'react';
-import Card from './components/Card';
-import { robots } from './data/robots';
 import './App.css';
 import 'tachyons';
+import CardList from './components/CardList';
 
 
-class App extends React.Component {
-  render () {
-    return (
-      <div className="App">
-        {
-          robots.map(data => {
-           return <Card 
-                    name={ data.name }
-                    email={ data.email }
-                  />
-          })
-        } 
-      </div>
-    );
-  }
+const App = () => {
+  return (
+    <div className='App'>
+      <CardList />
+    </div>
+  )
 }
 
 export default App;
