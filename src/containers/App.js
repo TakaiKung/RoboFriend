@@ -1,10 +1,11 @@
 import React from 'react';
-import { robots } from './data/robots';
-import CardList from './components/CardList';
-import SearchBox from './components/SearchBox';
 import './App.css';
 import 'tachyons';
-import Scroll from './components/Scroll';
+
+import { robots } from '../data/robots';
+import CardList from '../components/CardList'
+import SearchBox from '../components/SearchBox';
+import Scroll from '../components/Scroll' 
 
 class App extends React.Component {
   constructor() {
