@@ -28,21 +28,17 @@ class App extends React.Component {
 
   render() {
     console.log("render")
-    const filterRobots = this.state.robots.filter(robot => robot.name.toLowerCase().includes(this.state.searchField.toLowerCase()))
-    if (this.state.robots.length < 1) {
-      return <h1 className='tc'>Loading...</h1>
-    }
-    else {
-      return (
-        <div className='tc'>
-          <h1>RobotFriends</h1>
-            <SearchBox onSearchChange={this.onSearchChange}/>
-            <Scroll>
-              <CardList robots = { filterRobots } />
-            </Scroll>  
-        </div>
-      )
-    }
+    const { robots, searchField } = this.state;
+    const filterRobots = robots.filter(robot => robot.name.toLowerCase().includes(searchField.toLowerCase()))
+    return !robots.length ? 
+      <h1 className='tc'>Loading...</h1> :
+      <div className='tc'>
+        <h1>RobotFriends</h1>
+          <SearchBox onSearchChange={this.onSearchChange}/>
+          <Scroll>
+            <CardList robots = { filterRobots } />
+          </Scroll>  
+      </div> 
   }
 
 }
