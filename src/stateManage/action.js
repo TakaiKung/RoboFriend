@@ -6,8 +6,9 @@ export const setSearchField = (text) => ({
 })
 
 export const requestRobots = (dispatch) => {
+    const api = 'https://takaikung.github.io/RoboFriend/jsonplaceholder.typicode.com/users'
     dispatch({ type : REQUEST_ROBOTS_PENDING })
-    fetch('https:jsonplaceholder.typicode.com/users')
+    fetch(api.replace('takaikung.github.io/RoboFriend/', ''))
         .then(response => response.json())
         .then(data => dispatch({ type : REQUEST_ROBOTS_SUCCESS, payload : data }))
         .catch(error => dispatch({ type : REQUEST_ROBOTS_FAIL, payload : error }))
